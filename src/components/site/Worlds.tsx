@@ -137,7 +137,7 @@ const Worlds = () => {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-foreground hover:text-primary transition-colors"
                 >
-                  Enter the Library
+                  View Demo
                   <span aria-hidden>↗</span>
                 </a>
               )}
