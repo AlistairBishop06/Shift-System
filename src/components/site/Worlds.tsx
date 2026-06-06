@@ -57,11 +57,13 @@ const worlds: World[] = [
     num: "03",
     name: "Console",
     metaphor: "Operator workstation · Cmd+K career browser",
-    status: "Concept",
-    desc: "A retrofuturistic terminal room. CRTs boot your projects, commands navigate the resume, and visitors can run real shell sessions embedded in the page.",
+    status: "Live",
+    desc: "A retrofuturistic terminal room. CRTs boot your projects, commands navigate the resume, and visitors can see each repo on its own CRT monitor",
     controls: ["Cmd+K", "Type", "Enter"],
     img: console_,
     alt: "Dimly lit operator workstation with glowing teal CRT monitors",
+    href: "https://alistairbishop06.github.io/portfolio-crt/",
+    featured: true,
   },
 ];
 
