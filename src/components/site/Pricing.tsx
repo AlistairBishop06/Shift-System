@@ -59,7 +59,7 @@ const Pricing = () => {
                     : "border border-border hover:bg-foreground hover:text-background"
                 }`}
               >
-                {t.featured ? "Select Pro" : "Select"}
+                {t.featured ? "Select" : "Select"}
               </a>
             </div>
           ))}

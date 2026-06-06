@@ -16,8 +16,7 @@ const Features = () => {
             <div className="font-mono text-xs text-primary mb-4">[03] INTERACTION PRIMITIVES</div>
             <h2 className="text-4xl font-bold tracking-tighter">What every world is built from.</h2>
             <p className="mt-4 text-muted-foreground font-mono text-sm leading-relaxed">
-              The metaphor changes every project — library, galaxy, terrain, console.
-              The underlying toolkit doesn't.
+              While each site may look and feel totally unique, every one has the same core functionality - displaying your repositories.
             </p>
           </div>
         </div>
