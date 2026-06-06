@@ -1,37 +1,26 @@
 const tiers = [
   {
-    name: "Scene",
-    price: "$300",
+    name: "Template",
+    price: "£50",
     features: [
-      "One single-room 3D scene",
+      "Choose a pre-built design",
       "Live GitHub repo binding",
-      "Custom domain + deploy",
-      "10-day build window",
-    ],
-    featured: false,
-  },
-  {
-    name: "World",
-    price: "$750",
-    features: [
-      "Multi-area interactive world",
-      "Bespoke metaphor + physics",
-      "Repo-as-object interactions",
-      "Mobile-aware fallback scene",
+      "Full file access and deployment guide",
+      "Fast Delivery",
     ],
     featured: true,
   },
   {
-    name: "Signature World",
-    price: "$1500",
+    name: "Bespoke",
+    price: "£100",
     features: [
-      "Original concept co-designed with you",
-      "Custom shaders, audio, easter eggs",
-      "Diegetic controls + narrative",
-      "Source code license, lifetime tweaks",
+      "Design your own interactive portfolio",
+      "Live GitHub repo binding",
+      "Full file access and deployment guide",
+      "Direct contact for iteration and changes",
     ],
     featured: false,
-  },
+  }
 ];
 
 const Pricing = () => {
@@ -41,11 +30,8 @@ const Pricing = () => {
         <div className="text-center mb-16">
           <div className="font-mono text-xs text-primary mb-4">[04] COMMISSION TIERS</div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tighter">Pick a depth.</h2>
-          <p className="mt-4 font-mono text-sm text-muted-foreground max-w-md mx-auto">
-            Every tier ships as a fully custom build. No templates, no theme switcher.
-          </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {tiers.map((t) => (
             <div
               key={t.name}
