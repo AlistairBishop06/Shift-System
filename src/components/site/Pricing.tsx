@@ -1,18 +1,18 @@
 const tiers = [
   {
     name: "Template",
-    price: "£50",
+    price: "GBP 50",
     features: [
       "Choose a pre-built design",
       "Live GitHub repo binding",
       "Full file access and deployment guide",
-      "Fast Delivery",
+      "Fast delivery",
     ],
     featured: true,
   },
   {
     name: "Bespoke",
-    price: "£100",
+    price: "GBP 100",
     features: [
       "Design your own interactive portfolio",
       "Live GitHub repo binding",
@@ -20,10 +20,19 @@ const tiers = [
       "Direct contact for iteration and changes",
     ],
     featured: false,
-  }
+  },
 ];
 
-const Pricing = () => {
+type PricingProps = {
+  onSelectTier: (tier: string) => void;
+};
+
+const Pricing = ({ onSelectTier }: PricingProps) => {
+  const handleSelectTier = (tier: string) => {
+    onSelectTier(tier);
+    document.getElementById("initialize")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section id="cost" className="bg-surface py-32 border-y border-border px-6">
       <div className="max-w-7xl mx-auto">
@@ -51,16 +60,17 @@ const Pricing = () => {
                   <li key={f}>+ {f}</li>
                 ))}
               </ul>
-              <a
-                href="#initialize"
+              <button
+                type="button"
+                onClick={() => handleSelectTier(t.name)}
                 className={`w-full py-3 text-xs font-mono uppercase tracking-widest text-center transition-colors ${
                   t.featured
                     ? "bg-primary text-primary-foreground font-bold hover:opacity-90"
                     : "border border-border hover:bg-foreground hover:text-background"
                 }`}
               >
-                {t.featured ? "Select" : "Select"}
-              </a>
+                Select {t.name}
+              </button>
             </div>
           ))}
         </div>

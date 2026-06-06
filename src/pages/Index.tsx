@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Nav from "@/components/site/Nav";
 import Hero from "@/components/site/Hero";
 import Worlds from "@/components/site/Worlds";
@@ -8,6 +9,8 @@ import Waitlist from "@/components/site/Waitlist";
 import Footer from "@/components/site/Footer";
 
 const Index = () => {
+  const [selectedTier, setSelectedTier] = useState("Template");
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
@@ -15,8 +18,8 @@ const Index = () => {
         <Hero />
         <Worlds />
         <Features />
-        <Pricing />
-        <IntakeForm />
+        <Pricing onSelectTier={setSelectedTier} />
+        <IntakeForm selectedTier={selectedTier} onSelectTier={setSelectedTier} />
         <Waitlist />
       </main>
       <Footer />

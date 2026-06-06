@@ -1,11 +1,22 @@
 import { type FormEvent } from "react";
 import { toast } from "@/hooks/use-toast";
 
+const CONTACT_EMAIL = "alistairbishop@gmx.co.uk";
+
 const Waitlist = () => {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast({ title: "You're on the list", description: "We'll email you when the engine drops." });
-    (e.target as HTMLFormElement).reset();
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    const email = String(data.get("email") || "").trim();
+    const subject = "New Shifted.System waitlist signup";
+    const body = [`Waitlist signup: ${email}`].join("\n");
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+
+    toast({ title: "Email draft opened", description: "Send the draft to complete the signup." });
   };
 
   return (
@@ -20,6 +31,7 @@ const Waitlist = () => {
         <form onSubmit={onSubmit} className="flex w-full md:w-auto">
           <input
             required
+            name="email"
             type="email"
             placeholder="Email address"
             className="bg-background/20 border border-background/20 p-4 font-mono text-sm placeholder:text-background/50 focus:outline-none focus:border-background/60 transition-colors"
