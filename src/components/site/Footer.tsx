@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className="p-12 border-t border-border flex flex-col md:flex-row justify-between gap-12">
       <div className="space-y-4">
-        <div className="font-mono font-bold text-xl tracking-tighter uppercase">Shift.System</div>
+        <div className="font-mono font-bold text-xl tracking-tighter uppercase">Shifted.System</div>
         <p className="text-xs text-muted-foreground max-w-xs font-mono">
           Built for the 1% who build the 99%.
         </p>
