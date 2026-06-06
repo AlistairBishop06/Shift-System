@@ -1,15 +1,16 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { toast } from "@/hooks/use-toast";
 
 const CONTACT_EMAIL = "alistairbishop@gmx.co.uk";
 
-const concepts = [
+const templateConcepts = [
   { id: "library", label: "Library / Archive" },
   { id: "galaxy", label: "Galaxy / Orbit" },
   { id: "terrain", label: "Terrain / Map" },
   { id: "console", label: "Console / Room" },
-  { id: "custom", label: "Co-design with me" },
 ];
+
+const bespokeConcept = { id: "custom", label: "Co-design with me" };
 
 type IntakeFormProps = {
   selectedTier: string;
@@ -18,6 +19,11 @@ type IntakeFormProps = {
 
 const IntakeForm = ({ selectedTier, onSelectTier }: IntakeFormProps) => {
   const [concept, setConcept] = useState("library");
+  const isBespoke = selectedTier === "Bespoke";
+
+  useEffect(() => {
+    setConcept(isBespoke ? bespokeConcept.id : templateConcepts[0].id);
+  }, [isBespoke]);
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -27,7 +33,9 @@ const IntakeForm = ({ selectedTier, onSelectTier }: IntakeFormProps) => {
     const github = String(data.get("github") || "").trim();
     const email = String(data.get("email") || "").trim();
     const brief = String(data.get("brief") || "").trim();
-    const conceptLabel = concepts.find((item) => item.id === concept)?.label || concept;
+    const conceptLabel = isBespoke
+      ? bespokeConcept.label
+      : templateConcepts.find((item) => item.id === concept)?.label || concept;
     const subject = `Commission brief: ${selectedTier} portfolio for ${github}`;
     const body = [
       "New commission brief",
@@ -106,25 +114,27 @@ const IntakeForm = ({ selectedTier, onSelectTier }: IntakeFormProps) => {
             />
           </div>
         </div>
-        <div className="space-y-2">
-          <label className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-            World Concept
-          </label>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            {concepts.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => setConcept(s.id)}
-                className={`p-4 border bg-surface cursor-pointer flex flex-col items-center gap-2 transition-colors ${
-                  concept === s.id ? "border-primary text-primary" : "border-border hover:border-muted-foreground"
-                }`}
-              >
-                <span className="text-[11px] font-mono text-center leading-tight">{s.label}</span>
-              </button>
-            ))}
+        {!isBespoke && (
+          <div className="space-y-2">
+            <label className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+              Template Choice
+            </label>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {templateConcepts.map((s) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => setConcept(s.id)}
+                  className={`p-4 border bg-surface cursor-pointer flex flex-col items-center gap-2 transition-colors ${
+                    concept === s.id ? "border-primary text-primary" : "border-border hover:border-muted-foreground"
+                  }`}
+                >
+                  <span className="text-[11px] font-mono text-center leading-tight">{s.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
         <div className="space-y-2">
           <label className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             What should it feel like?
