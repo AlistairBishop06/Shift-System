@@ -16,8 +16,8 @@ const Footer = () => {
           </span>
           <div className="flex flex-col gap-1 text-sm font-mono">
             <a href="https://www.instagram.com/shifted.system/" className="hover:text-primary transition-colors">Instagram</a>
-            <a href="#" className="hover:text-primary transition-colors">GitHub</a>
-            <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
+            <a href="https://github.com/AlistairBishop06" className="hover:text-primary transition-colors">GitHub</a>
+            <a href="https://www.linkedin.com/in/alistairbishop1/" className="hover:text-primary transition-colors">LinkedIn</a>
           </div>
         </div>
         <div className="space-y-2">
