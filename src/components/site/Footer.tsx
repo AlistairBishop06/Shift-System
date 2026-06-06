@@ -13,7 +13,7 @@ const Footer = () => {
             Social
           </span>
           <div className="flex flex-col gap-1 text-sm font-mono">
-            <a href="#" className="hover:text-primary transition-colors">Twitter</a>
+            <a href="https://www.instagram.com/shifted.system/" className="hover:text-primary transition-colors">Instagram</a>
             <a href="#" className="hover:text-primary transition-colors">GitHub</a>
             <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
           </div>
@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-[10px] font-mono text-muted-foreground text-right self-end uppercase tracking-[0.2em]">
-        © 2026 System Creative Studio.
+        © 2026 Shifted System Studio.
       </div>
     </footer>
   );
