@@ -12,9 +12,9 @@ const Waitlist = () => {
     <section className="px-6 py-24 bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div>
-          <h2 className="text-3xl font-black tracking-tight">Can't afford it yet?</h2>
+          <h2 className="text-3xl font-black tracking-tight">Not sold?</h2>
           <p className="font-mono text-sm mt-2 opacity-80">
-            Join the waitlist for our upcoming DIY portfolio engine.
+            Join the waitlist to be notified about new templates and special offers.
           </p>
         </div>
         <form onSubmit={onSubmit} className="flex w-full md:w-auto">
